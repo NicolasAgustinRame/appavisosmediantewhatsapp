@@ -1,0 +1,24 @@
+:root {
+    --white:rgb(255, 251, 244);
+    --black:rgb(20, 15, 7);
+    --color-fondo: rgb(34, 39, 46);
+}
+
+body {
+    background-color: var(--color-fondo);
+    color: var(--white);
+}
+
+h1 {
+    color: var(--white);
+}
+
+.cliente {
+    background-color: var(--white);
+    border-radius: 32px;
+    color: var(--black);
+}
+
+.eliminar {
+    border-radius: 50px;
+}
