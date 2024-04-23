@@ -20,6 +20,7 @@ body {
 h1 {
     color: var(--white);
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+    font-size: 35px;
 }
 
 .card-cliente {
