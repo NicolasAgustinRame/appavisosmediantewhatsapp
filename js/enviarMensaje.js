@@ -1,20 +1,15 @@
-/* 
-    function sendToWhatsApp() {
-    let numer = ""
-    let otroNumero = ""
+//Funcion para enviar el mensaje que da el trabajo como iniciado
+function enviarMensajeIniciacion() {
+    let numeroCliente = document.getElementById('telefonoCliente').textContent
+    let mensaje = "El trabajo se empezo a hacer"
 
-    let name = document.getElementById('name').value
-    let email = document.getElementById('email').value
-    let message = document.getElementById('message').value
-
-    var url = "https://wa.me/" + numer + "?text=" + "Name: " +name+
-    "%0a" + "Email: " +email+ "%0a" + "Message: " +message+ "%0a%0a";
-
+    var url = "https://wa.me/" + numeroCliente + "?text=" +mensaje+"%0a%0a";
+    console.log(url)
     window.open(url, '_blank').focus();
 }
-*/
 
-function enviarMensajeAWhatsApp() {
+//funcion para enviar el mensaje que da como finalizado el trabajo
+function enviarMensajeFinalizacion() {
     let numeroCliente = document.getElementById('telefonoCliente').textContent
     let nombreCliente = document.getElementById('nombreCliente').textContent
     let trabajoRealizado = document.getElementById('txtTrabajoRealizado').value
