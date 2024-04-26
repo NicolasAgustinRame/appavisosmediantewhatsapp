@@ -34,7 +34,7 @@
                     <button type="button" class="btn-close my-2 mx-3 eliminar contraste"  aria-label="Close"></button>
                 </div>
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3 d-flex justify-content-center">
-                    <button type="button" class="btn btn-primary mb-3 mx-2 contraste">Empezar</button>
+                    <button type="button" class="btn btn-primary mb-3 mx-2 contraste" onclick="enviarMensajeIniciacion()">Empezar</button>
                     <button type="button" class="btn btn-danger mb-3 mx-2 contraste" data-bs-toggle="modal" data-bs-target="#modalTerminarTrabajo" >Terminar</button>
                 </div>
             </div>
@@ -76,7 +76,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-success" id="btnFinalizar" onclick="enviarMensajeAWhatsApp()">Finalizar</button>
+                        <button type="button" class="btn btn-success" id="btnFinalizar" onclick="enviarMensajeFinalizacionAWhatsApp()">Finalizar</button>
                     </div>
                 </div>
             </div>
