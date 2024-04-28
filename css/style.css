@@ -23,18 +23,19 @@ h1 {
     font-size: 35px;
 }
 
-.card-cliente {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.28);
-}
-
 .cliente {
     background-color: var(--white);
     border-radius: 32px;
     color: var(--black);
+    margin-bottom: 20px;
 }
 
 .cliente img {
     filter: drop-shadow(3px 1px 5px black);
+}
+
+.button-contraste {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
 }
 
 .eliminar {
