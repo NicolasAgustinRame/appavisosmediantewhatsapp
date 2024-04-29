@@ -1,13 +1,13 @@
 var form = document.querySelector("#myForm"),
+    numOrden = document.getElementById("txtNumeroOrden"),
     nuevoClienteNombre = document.getElementById("txtNombreCliente"),
     nuevoClienteTelefono = document.getElementById("txtNumeroCliente"),
+    descripcionTrabajo = document.getElementById("txtDescripcion"),
     fechaDeInicioTrabajo = document.getElementById("date"),
     clienteInfo = document.getElementById("data"),
     submitBtn = document.querySelector(".submit")
 
 let getData = localStorage.getItem('clientePrefil') ? JSON.parse(localStorage.getItem('clientePrefil')) : []
-
-
 
 function showInfo() {
     const clienteContainer = document.getElementById("clienteContainer")
@@ -22,15 +22,16 @@ function showInfo() {
         const diasPasados = Math.floor(diferenciaTiempo / (1000 * 3600 * 24))
 
         let createElement = `
-        <div class="cliente" id="data${index}">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 cliente" id="data${index}">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-6 d-flex justify-content-between cliente">
-                <img width="48" height="48" src="images/icono2-cliente.png" alt="user" class="mx-3 mt-1" />
+                <p class="mt-3 me-1 ms-1 contraste" id="numeroOrden">${element.numeroDeOrden}</p>
                 <p class="mt-3 me-1 ms-1 contraste" id="nombreCliente">${element.nombre}</p>
                 <p class="mt-3 me-1 ms-1 contraste" id="telefonoCliente">${element.telefono}</p>
-                <p class="mx-3 mt-3 me-1 ms-1 contraste" id="fechaDeInicio">Empezado hace ${diasPasados} dias</p>
+                <p class="mt-3 me-1 ms-1 contraste" id="descripcion">${element.descripcion}</p>
+                <p class="mt-3 me-1 ms-1 contraste" id="fechaDeInicio">Iniciado hace ${diasPasados} dias</p>
             </div>
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3 d-flex justify-content-center">
-                <button type="button" class="btn btn-success mb-3 mx-2 contraste button-contraste" data-bs-toggle="modal" data-bs-target="#modalTerminarTrabajo" >Terminar</button>
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex justify-content-center">
+                <button type="button" class="btn btn-success mb-3 mx-2 contraste button-contraste" data-bs-toggle="modal" data-bs-target="#modalTerminarTrabajo"><i class="bi bi-check-circle"></i></button>
                 <button class="btn btn-danger mb-3 button-contraste" onclick="deleteCliente(${index})"><i class="bi bi-trash"></i></button>
             </div>
         </div>`;
@@ -55,7 +56,6 @@ function deleteCliente(index) {
                 title: "Eliminado!",
                 text: "Tu cliente ha sido eliminado",
                 icon: "success"
-                
             });
             getData.splice(index, 1)
             localStorage.setItem('clientePrefil', JSON.stringify(getData))
@@ -68,8 +68,10 @@ form.addEventListener('submit', (e) => {
     e.preventDefault()
 
     const informacion = {
+        numeroDeOrden: numOrden.value,
         nombre: nuevoClienteNombre.value,
         telefono: nuevoClienteTelefono.value,
+        descripcion: descripcionTrabajo.value,
         fecha: fechaDeInicioTrabajo.value
     }
     getData.push(informacion)
@@ -80,3 +82,18 @@ form.addEventListener('submit', (e) => {
     form.reset()
 
 })
+
+function enviarMensaje() {
+    let montoAPagar = document.getElementById('txtMonto').value
+
+    getData.forEach((element) => {
+        var url = "https://wa.me/" + element.telefono + "?text=" +element.nombre+
+        "%0a" + "Trabajo realizado: " +element.descripcion+ "%0a" + "Monto a pagar: $" +montoAPagar+ "%0a%0a";
+
+        console.log(nombreCliente, telefonoCliente, descripcion)
+        console.log(url)
+        window.open(url, '_blank').focus();
+    })
+}
+
+
