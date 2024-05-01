@@ -22,15 +22,26 @@
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 mt-3 text-center">
                 <div class="d-grid gap-2">
-                    <button type="button" class="btn btn-warning contraste" data-bs-toggle="modal" data-bs-target="#modalNuevoCliente">Nuevo Cliente</button>
+                    <button type="button" class="btn btn-primary contraste" data-bs-toggle="modal" data-bs-target="#modalNuevoCliente">Nuevo Cliente</button>
                 </div>
             </div>
         </div>
-            <div id="clienteContainer" class="row me-2 ms-2 mt-3 mb-2 card-cliente">
-                <div class="cliente" id="data">
-                        
+        <!-- <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-2 col-xs-2 mt-3 text-center">
+                <div class="d-grid gap-2">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
                 </div>
             </div>
+        </div> -->
+        
+            <div id="clienteContainer" class="row mt-3 mb-2 me-2 ms-2 card-cliente">
+                <div class="cliente" id="data">
+                
+                </div>
+            </div>
+        
+        </div>
     </div>
 
     <!-- Modal para nuevo cliente-->
@@ -43,24 +54,20 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body mx-2 ">
-                    <form action="#" id="myForm">
+                    <form action="#" class="needs-validation" id="myForm">
                         <div>
-                            <input type="text" class="form-control is-invalid my-2" id="txtNumeroOrden"
+                            <input type="text" class="form-control my-2" id="txtNumeroOrden"
                                 placeholder="Numero de Orden..." required>
                         </div>
-
-                        <input type="text" class="form-control is-invalid my-2" id="txtNombreCliente" placeholder="Nombre..."
+                        <input type="text" class="form-control my-2" id="txtNombreCliente" placeholder="Nombre..."
                             required>
-                        <input type="tel" class="form-control is-invalid my-2" id="txtNumeroCliente" placeholder="Telefono..."
+                        <input type="tel" class="form-control my-2" id="txtNumeroCliente" placeholder="Telefono..."
                             minlength="10" maxlength="10" required>
-                        <input type="text" class="form-control is-invalid my-2" id="txtDescripcion" placeholder="Descripcion..."
+                        <input type="text" class="form-control my-2" id="txtDescripcion" placeholder="Descripcion..."
                             required>
-                        <input type="date" class="form-control is-invalid my-2" id="date" required>
+                        <input type="date" class="form-control my-2" id="date" required>
 
-                        <button type="submit" class="btn btn-success submit button-contraste" id="">Agregar</button>
-                        <button type="button" class="btn btn-danger my-3 mx-2 button-contraste"
-                            data-bs-dismiss="modal">Cerrar</button>
-
+                        <button type="submit" class="btn btn-success submit button-contraste my-3" id="">Agregar</button>
                     </form>
 
                 </div>
@@ -73,6 +80,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content modalFinish">
                 <div class="modal-header">
+                    <img width="38" height="38" src="images/icono-check.png" alt="user" class="mx-2 mt-1" />
                     <h5 class="modal-title contraste">Terminar Trabajo</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -80,10 +88,8 @@
                     <form action="#">
                         <input type="text" class="form-control my-2" id="txtMonto" placeholder="Monto a pagar..."
                             required>
-                        <button type="button" class="btn btn-success button-contraste" id="btnFinalizar"
+                        <button type="button" class="btn btn-success button-contraste my-3" id="btnFinalizar"
                             onclick="enviarMensaje()">Finalizar</button>
-                        <button type="button" class="btn btn-danger button-contraste my-3 mx-2"
-                            data-bs-dismiss="modal">Cerrar</button>
                     </form>
                 </div>
             </div>

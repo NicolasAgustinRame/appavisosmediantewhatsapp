@@ -28,6 +28,7 @@ h1 {
     border-radius: 32px;
     color: var(--black);
     margin-bottom: 20px;
+    
 }
 
 .cliente img {
@@ -69,5 +70,9 @@ h1 {
 }
 
 .modalFinish {
-    background-color: var(--color-fondo-modal2);
+    background-color: var(--color-fondo-modal);
+}
+
+@media (max-width: 576px) {
+    
 }
