@@ -22,14 +22,20 @@ function showInfo() {
         const diasPasados = Math.floor(diferenciaTiempo / (1000 * 3600 * 24))
 
         let createElement = `
-        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 cliente" id="data${index}">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-6 d-flex justify-content-between cliente">
-                <p class="mt-3 me-1 ms-1 contraste" id="numeroOrden">${element.numeroDeOrden}</p>
-                <p class="mt-3 me-1 ms-1 contraste" id="nombreCliente">${element.nombre}</p>
-                <p class="mt-3 me-1 ms-1 contraste" id="telefonoCliente">${element.telefono}</p>
-                <p class="mt-3 me-1 ms-1 contraste" id="descripcion">${element.descripcion}</p>
-                <p class="mt-3 me-1 ms-1 contraste" id="fechaDeInicio">Iniciado hace ${diasPasados} dias</p>
-            </div>
+        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 col-xs-12 cliente" id="data${index}">
+            <div class="row justify-content-center">
+                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-4 d-flex justify-content-between cliente">
+                    <p class="mt-3 me-1 ms-1 contraste" id="numeroOrden">${element.numeroDeOrden}</p>
+                    <p class="mt-3  contraste" id="nombreCliente">${element.nombre}</p>
+                    <p class="mt-3 me-1 ms-1 contraste" id="telefonoCliente">${element.telefono}</p>
+                </div>
+            </div>  
+            <div class="row justify-content-center">
+                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-4 d-flex justify-content-between cliente">
+                    <p class="mt-3 me-1 ms-1 contraste" id="descripcion">${element.descripcion}</p>
+                    <p class="mt-3 me-1 ms-1 contraste" id="fechaDeInicio">Iniciado hace ${diasPasados} días</p>
+                </div>
+            </div>    
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex justify-content-center">
                 <button type="button" class="btn btn-success mb-3 mx-2 contraste button-contraste" data-bs-toggle="modal" data-bs-target="#modalTerminarTrabajo"><i class="bi bi-check-circle"></i></button>
                 <button class="btn btn-danger mb-3 button-contraste" onclick="deleteCliente(${index})"><i class="bi bi-trash"></i></button>
