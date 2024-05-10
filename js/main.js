@@ -37,7 +37,7 @@ function showInfo() {
                 </div>
             </div>    
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex justify-content-center">
-                <button type="button" class="btn btn-success mb-3 mx-2 contraste button-contraste" data-bs-toggle="modal" data-bs-target="#modalTerminarTrabajo"><i class="bi bi-check-circle"></i></button>
+                <button type="button" class="btn btn-success mb-3 mx-2 contraste button-contraste" onclick="enviarMensaje(${index})"><i class="bi bi-check-circle"></i></button>
                 <button class="btn btn-danger mb-3 button-contraste" onclick="deleteCliente(${index})"><i class="bi bi-trash"></i></button>
             </div>
         </div>`;
@@ -70,6 +70,29 @@ function deleteCliente(index) {
     });
 }
 
+function enviarMensaje(index) {
+    const cliente = getData[index];
+
+    Swal.fire({
+        title: `Terminar trabajo de ${cliente.nombre}`,
+        input: "text",
+        inputPlaceholder: "Ingresar monto...",
+        showCancelButton: true,
+        confirmButtonText: "Enviar",
+        cancelButtonText: "Cancelar",
+        showLoaderOnConfirm: true,
+        preConfirm: async (mensaje) => {
+            try {
+                const url = `https://wa.me/${cliente.telefono}?text=Hola!%0aEsta listo todo. *Total a pagar: $${encodeURIComponent(mensaje)}*%0a_Acá Te Arreglo Tu Ropa_%0aAv San Alfonso 1124`;
+                window.open(url, '_blank').focus();
+            } catch (error) {
+                Swal.showValidationMessage(`Ocurrió un error: ${error}`);
+            }   
+        },
+        allowOutsideClick: () => !Swal.isLoading()
+    });
+}
+
 form.addEventListener('submit', (e) => {
     e.preventDefault()
 
@@ -89,17 +112,14 @@ form.addEventListener('submit', (e) => {
 
 })
 
-function enviarMensaje() {
+/* function enviarMensaje(index) {
     let montoAPagar = document.getElementById('txtMonto').value
+    const cliente = getData[index];
 
-    getData.forEach((element) => {
-        var url = "https://wa.me/" + element.telefono + "?text=" +element.nombre+
-        "%0a" + "Trabajo realizado: " +element.descripcion+ "%0a" + "Monto a pagar: $" +montoAPagar+ "%0a%0a";
+    var url = "https://wa.me/" + cliente.telefono + "?text=" + cliente.nombre +
+        "%0a" + "Trabajo realizado: " + cliente.descripcion + "%0a" + "Monto a pagar: $" + montoAPagar + "%0a%0a";
 
-        console.log(nombreCliente, telefonoCliente, descripcion)
-        console.log(url)
-        window.open(url, '_blank').focus();
-    })
-}
+    window.open(url, '_blank').focus();
+} */
 
 
