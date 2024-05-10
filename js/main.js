@@ -83,7 +83,7 @@ function enviarMensaje(index) {
         showLoaderOnConfirm: true,
         preConfirm: async (mensaje) => {
             try {
-                const url = `https://wa.me/${cliente.telefono}?text=Hola!%0aEsta listo todo. *Total a pagar: $${encodeURIComponent(mensaje)}*%0a_Acá Te Arreglo Tu Ropa_%0aAv San Alfonso 1124`;
+                const url = `https://wa.me/${cliente.telefono}?text=Hola!%0aEsta listo todo. *Total a pagar: $${encodeURIComponent(mensaje)}*%0a¡Muchas Gracias!%0a_Acá Te Arreglo Tu Ropa_%0aAv San Alfonso 1124`;
                 window.open(url, '_blank').focus();
             } catch (error) {
                 Swal.showValidationMessage(`Ocurrió un error: ${error}`);
